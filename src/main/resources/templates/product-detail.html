@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          th:content="${'Chi tiết sản phẩm ' + product.name + ' - BÁN HÀNG TRỰC TUYẾN'}">
+    <title th:text="${product.name + ' - BÁN HÀNG TRỰC TUYẾN'}">Chi tiết sản phẩm</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="navbar-container">
+        <a th:href="@{/}" class="navbar-brand">
+            <div class="brand-icon">🛒</div>
+            <span class="brand-text">BÁN HÀNG TRỰC TUYẾN</span>
+        </a>
+        <nav class="navbar-nav">
+            <a th:href="@{/}" class="nav-link">Trang Chủ</a>
+            <a th:href="@{/products}" class="nav-link">Tất cả</a>
+            <a th:each="cat : ${categories}"
+               th:href="@{/products(categoryId=${cat.id})}"
+               th:text="${cat.name}"
+               th:classappend="${cat.id == product.categoryId} ? 'active' : ''"
+               class="nav-link"></a>
+        </nav>
+    </div>
+</nav>
+
+<main class="page-wrapper">
+
+    <nav class="breadcrumb" aria-label="breadcrumb">
+        <span class="breadcrumb-item"><a th:href="@{/}">🏠 Trang chủ</a></span>
+        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-item"><a th:href="@{/products}">Sản phẩm</a></span>
+        <span class="breadcrumb-separator">›</span>
+        <span th:if="${category != null}" class="breadcrumb-item">
+            <a th:href="@{/products(categoryId=${category.id})}" th:text="${category.name}">Danh mục</a>
+        </span>
+        <span th:if="${category != null}" class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-item active" th:text="${product.name}">Tên sản phẩm</span>
+    </nav>
+
+    <div class="product-detail">
+
+        <div class="product-detail-images">
+            <div class="product-detail-main-image">
+                <img th:if="${product.image != null and !#strings.isEmpty(product.image)}"
+                     th:src="@{'/images/' + ${product.image}}"
+                     th:alt="${product.name}"
+                     onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';" />
+                <div class="product-placeholder" th:style="${product.image != null and !#strings.isEmpty(product.image)} ? 'display: none;' : 'display: flex;'">
+                    <span th:text="${product.categoryId == 1 ? '📱' : '💻'}"
+                          style="font-size: 8rem;">📱</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-detail-info">
+            <div class="product-detail-category" th:if="${category != null}">
+                <span th:text="${product.categoryId == 1 ? '📱' : '💻'}">📱</span>
+                <span th:text="${category.name}">Danh mục</span>
+            </div>
+
+            <h1 class="product-detail-title" th:text="${product.name}">Tên sản phẩm</h1>
+
+            <div class="product-detail-price"
+                 th:text="${#numbers.formatInteger(product.price, 3, 'COMMA') + ' ₫'}">
+                0 ₫
+            </div>
+
+            <p class="product-detail-desc" th:text="${product.description}">Mô tả sản phẩm</p>
+
+            <div class="product-detail-actions">
+                <a th:href="@{/products}" class="btn btn-outline">
+                    ← Quay lại danh sách
+                </a>
+                <a th:if="${category != null}"
+                   th:href="@{/products(categoryId=${category.id})}"
+                   class="btn btn-primary">
+                    Xem thêm sản phẩm tương tự
+                </a>
+            </div>
+
+            <div class="product-spec-list">
+                <div class="spec-item">
+                    <span class="spec-label">Mã sản phẩm</span>
+                    <span class="spec-value" th:text="${'SP' + product.id}">SP001</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Danh mục</span>
+                    <span class="spec-value"
+                          th:text="${category != null ? category.name : 'Không xác định'}">
+                        Danh mục
+                    </span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Giá bán</span>
+                    <span class="spec-value"
+                          th:text="${#numbers.formatInteger(product.price, 3, 'COMMA') + ' ₫'}"
+                          style="color: var(--secondary); font-weight: 700;">
+                        0 ₫
+                    </span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Bảo hành</span>
+                    <span class="spec-value">12 tháng chính hãng</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Tình trạng</span>
+                    <span class="spec-value" style="color: var(--accent);">✅ Còn hàng</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Giao hàng</span>
+                    <span class="spec-value">Toàn quốc - 1 đến 3 ngày làm việc</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4" th:if="${relatedProducts != null and !relatedProducts.isEmpty()}">
+        <div class="section-header">
+            <h2 class="section-title">Sản phẩm liên quan</h2>
+            <a th:if="${category != null}"
+               th:href="@{/products(categoryId=${category.id})}"
+               class="btn btn-outline btn-sm">
+                Xem tất cả →
+            </a>
+        </div>
+
+        <div class="products-grid">
+            <div th:each="related : ${relatedProducts}" class="product-card">
+                <a th:href="@{/products/{id}(id=${related.id})}" style="display: contents;">
+                    <div class="product-card-image">
+                        <img th:if="${related.image != null and !#strings.isEmpty(related.image)}"
+                             th:src="@{'/images/' + ${related.image}}"
+                             th:alt="${related.name}"
+                             onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';" />
+                        <div class="product-placeholder" th:style="${related.image != null and !#strings.isEmpty(related.image)} ? 'display: none;' : 'display: flex;'">
+                            <span th:text="${related.categoryId == 1 ? '📱' : '💻'}">📱</span>
+                        </div>
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title" th:text="${related.name}">Tên</h3>
+                        <p class="product-card-desc" th:text="${related.description}">Mô tả</p>
+                        <div class="product-card-footer">
+                            <span class="product-price"
+                                  th:text="${#numbers.formatInteger(related.price, 3, 'COMMA') + ' ₫'}">
+                                0 ₫
+                            </span>
+                            <span class="btn btn-primary btn-sm">Chi tiết →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div>
+            <div class="footer-brand">
+                <div class="brand-icon">🛒</div>
+                <span>BÁN HÀNG TRỰC TUYẾN</span>
+            </div>
+            <p class="footer-desc">
+                Cửa hàng trực tuyến uy tín, chuyên cung cấp điện thoại di động
+                và máy tính bảng chính hãng với giá cạnh tranh nhất thị trường.
+            </p>
+        </div>
+        <div>
+            <h4 class="footer-heading">Danh mục</h4>
+            <div class="footer-links">
+                <a th:href="@{/products}" class="footer-link">Tất cả sản phẩm</a>
+                <a th:each="cat : ${categories}"
+                   th:href="@{/products(categoryId=${cat.id})}"
+                   th:text="${cat.name}"
+                   class="footer-link">Danh mục</a>
+            </div>
+        </div>
+        <div>
+            <h4 class="footer-heading">Hỗ trợ</h4>
+            <div class="footer-links">
+                <span class="footer-link">Chính sách đổi trả</span>
+                <span class="footer-link">Bảo hành sản phẩm</span>
+                <span class="footer-link">Hướng dẫn mua hàng</span>
+            </div>
+        </div>
+        <div>
+            <h4 class="footer-heading">Thông tin</h4>
+            <div class="footer-links">
+                <span class="footer-link">Về chúng tôi</span>
+                <span class="footer-link">Liên hệ</span>
+                <span class="footer-link">Điều khoản dịch vụ</span>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2025 BÁN HÀNG TRỰC TUYẾN. Tất cả quyền được bảo lưu.</span>
+        <span>Xây dựng bằng Spring Boot &amp; Thymeleaf</span>
+    </div>
+</footer>
+
+</body>
+</html>

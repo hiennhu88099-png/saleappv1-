@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "name": "Điện thoại di động",
+    "description": "Các dòng smartphone từ nhiều thương hiệu nổi tiếng"
+  },
+  {
+    "id": 2,
+    "name": "Máy tính bảng",
+    "description": "Các dòng tablet dành cho học tập và giải trí"
+  }
+]

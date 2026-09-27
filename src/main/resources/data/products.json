@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "iPhone 15 Pro Max",
+    "description": "Điện thoại cao cấp nhất của Apple với chip A17 Pro, camera 48MP, màn hình 6.7 inch Super Retina XDR, titanium design. Hỗ trợ USB-C và Action Button.",
+    "price": 34990000,
+    "image": "iphone15promax.jpg",
+    "categoryId": 1
+  },
+  {
+    "id": 2,
+    "name": "iPhone 15",
+    "description": "iPhone 15 với Dynamic Island, camera chính 48MP, chip A16 Bionic, màn hình 6.1 inch OLED. Thiết kế nhôm cao cấp với cổng USB-C.",
+    "price": 22990000,
+    "image": "iphone15.jpg",
+    "categoryId": 1
+  },
+  {
+    "id": 3,
+    "name": "Samsung Galaxy S24 Ultra",
+    "description": "Flagship Android cao cấp với S Pen tích hợp, camera 200MP, chip Snapdragon 8 Gen 3, màn hình 6.8 inch Dynamic AMOLED 2X, AI Galaxy AI.",
+    "price": 31990000,
+    "image": "s24ultra.jpg",
+    "categoryId": 1
+  },
+  {
+    "id": 4,
+    "name": "Samsung Galaxy S24",
+    "description": "Samsung Galaxy S24 chip Snapdragon 8 Gen 3, camera 50MP, màn hình 6.2 inch Dynamic AMOLED 2X 120Hz, pin 4000mAh, Galaxy AI thông minh.",
+    "price": 19990000,
+    "image": "s24.jpg",
+    "categoryId": 1
+  },
+  {
+    "id": 5,
+    "name": "Xiaomi 14 Pro",
+    "description": "Xiaomi 14 Pro với Leica camera triple 50MP, chip Snapdragon 8 Gen 3, màn hình AMOLED 6.73 inch 120Hz, sạc nhanh 120W HyperCharge.",
+    "price": 18990000,
+    "image": "xiaomi14pro.jpg",
+    "categoryId": 1
+  },
+  {
+    "id": 6,
+    "name": "OPPO Find X7 Pro",
+    "description": "OPPO Find X7 Pro camera Hasselblad, chip Dimensity 9300, màn hình AMOLED 6.82 inch 120Hz, sạc nhanh 100W SUPERVOOC, pin 5000mAh.",
+    "price": 21990000,
+    "image": "oppofindx7.jpg",
+    "categoryId": 1
+  },
+  {
+    "id": 7,
+    "name": "Vivo X100 Pro",
+    "description": "Vivo X100 Pro với camera Zeiss 200MP, chip Dimensity 9300, màn hình AMOLED 6.78 inch 144Hz, sạc nhanh 100W FlashCharge, pin 5400mAh.",
+    "price": 19490000,
+    "image": "vivox100pro.jpg",
+    "categoryId": 1
+  },
+  {
+    "id": 8,
+    "name": "Google Pixel 8 Pro",
+    "description": "Google Pixel 8 Pro chip Tensor G3, camera 50MP với Google AI, màn hình OLED 6.7 inch LTPO 120Hz, 7 năm cập nhật phần mềm, tính năng AI đỉnh cao.",
+    "price": 23990000,
+    "image": "pixel8pro.jpg",
+    "categoryId": 1
+  },
+  {
+    "id": 9,
+    "name": "iPad Pro 12.9 inch M2",
+    "description": "iPad Pro 12.9 inch với chip M2 mạnh mẽ, màn hình Liquid Retina XDR Mini-LED, hỗ trợ Apple Pencil 2, Magic Keyboard, Thunderbolt/USB 4.",
+    "price": 32990000,
+    "image": "ipadpro12.jpg",
+    "categoryId": 2
+  },
+  {
+    "id": 10,
+    "name": "iPad Air M1",
+    "description": "iPad Air chip M1, màn hình Liquid Retina 10.9 inch True Tone, Touch ID trên nút nguồn, hỗ trợ Apple Pencil 2 và Magic Keyboard.",
+    "price": 18990000,
+    "image": "ipadair.jpg",
+    "categoryId": 2
+  },
+  {
+    "id": 11,
+    "name": "Samsung Galaxy Tab S9 Ultra",
+    "description": "Samsung Galaxy Tab S9 Ultra màn hình AMOLED 14.6 inch, chip Snapdragon 8 Gen 2, S Pen tích hợp, khung nhôm cao cấp, dung lượng pin 11200mAh.",
+    "price": 27990000,
+    "image": "tabs9ultra.jpg",
+    "categoryId": 2
+  },
+  {
+    "id": 12,
+    "name": "Samsung Galaxy Tab S9 FE",
+    "description": "Galaxy Tab S9 FE màn hình TFT LCD 10.9 inch, chip Exynos 1380, S Pen hỗ trợ, IP68 chống nước, pin 8000mAh, sạc 45W.",
+    "price": 11990000,
+    "image": "tabs9fe.jpg",
+    "categoryId": 2
+  },
+  {
+    "id": 13,
+    "name": "Xiaomi Pad 6 Pro",
+    "description": "Xiaomi Pad 6 Pro chip Snapdragon 8+ Gen 1, màn hình IPS LCD 11 inch 144Hz, hỗ trợ Smart Pen, pin 8600mAh, sạc nhanh 67W.",
+    "price": 9990000,
+    "image": "xiaomipad6pro.jpg",
+    "categoryId": 2
+  },
+  {
+    "id": 14,
+    "name": "Lenovo Tab P12 Pro",
+    "description": "Lenovo Tab P12 Pro màn hình AMOLED 12.6 inch 2K, chip Snapdragon 870, pin 10200mAh, bàn phím rời, bút cảm ứng tích hợp.",
+    "price": 14990000,
+    "image": "lenovotabp12.jpg",
+    "categoryId": 2
+  },
+  {
+    "id": 15,
+    "name": "iPhone 14 Plus",
+    "description": "iPhone 14 Plus màn hình 6.7 inch Super Retina XDR, chip A15 Bionic, camera chính 12MP với Action Mode, pin lên đến 26 giờ.",
+    "price": 17990000,
+    "image": "iphone14plus.jpg",
+    "categoryId": 1
+  }
+]
